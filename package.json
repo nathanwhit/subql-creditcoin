@@ -1,0 +1,32 @@
+{
+  "name": "subql-creditcoin",
+  "version": "0.0.4",
+  "description": "This project can be use as a starting point for developing your SubQuery project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "prepack": "rm -rf dist && npm build",
+    "test": "jest",
+    "codegen": "./node_modules/.bin/subql codegen",
+    "generate:defs": "ts-node --skip-project node_modules/.bin/polkadot-types-from-defs --package subql-creditcoin/api-interfaces --input ./src/api-interfaces --endpoint ./src/api-interfaces/creditcoin.json",
+    "generate:meta": "ts-node --skip-project node_modules/.bin/polkadot-types-from-chain --package subql-creditcoin/api-interfaces  --endpoint ./src/api-interfaces/creditcoin.json --output ./src/api-interfaces"
+  },
+  "homepage": "https://github.com/subquery/subql-starter",
+  "repository": "github:subquery/subql-starter",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "Nathan Whitaker",
+  "license": "MIT",
+  "devDependencies": {
+    "@polkadot/api": "^7",
+    "@polkadot/typegen": "^7",
+    "@subql/cli": "latest",
+    "@subql/types": "latest",
+    "@types/lodash": "^4.14.181",
+    "lodash": "^4.17.21",
+    "typescript": "^4.1.3"
+  }
+}

@@ -1,0 +1,24 @@
+specVersion: 0.2.0
+name: subql-creditcoin
+version: 0.0.4
+description: >-
+  This project can be use as a starting point for developing your SubQuery
+  project
+repository: "https://github.com/subquery/subql-starter"
+schema:
+  file: ./schema.graphql
+network:
+  endpoint: "ws://127.0.0.1:9944"
+  genesisHash: "0xdd954cbf4000542ef1a15bca509cd89684330bee5e23766c527cdb0d7275e9c2"
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleExtrinsic
+          kind: substrate/CallHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
