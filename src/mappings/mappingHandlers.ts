@@ -12,9 +12,7 @@ import { u8aToHex } from "@polkadot/util";
 import { uniq } from "lodash";
 
 const ACCOUNT_TYPES = ["Address", "LookupSource", "AccountId", "AccountId32"];
-const eventsMapping = {
-  
-};
+const eventsMapping = {};
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
   let record = new Block(block.block.header.number.toString());
