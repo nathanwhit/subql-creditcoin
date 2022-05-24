@@ -30,6 +30,8 @@ services:
     volumes:
       - ./:/app
     command:
+      # - --help
+      - --network-endpoint=ws://host.docker.internal:9944
       - -f=/app
       - --db-schema=app
     healthcheck:
@@ -37,6 +39,8 @@ services:
       interval: 3s
       timeout: 5s
       retries: 10
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   graphql-engine:
     image: onfinality/subql-query:latest
